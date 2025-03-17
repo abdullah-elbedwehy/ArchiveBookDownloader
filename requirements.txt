@@ -1,4 +1,5 @@
 requests>=2.25.1
 tqdm>=4.62.3
 img2pdf>=0.4.4
-concurrent-futures>=3.0.5 
+futures>=3.2.0
+jupyter>=1.0.0 

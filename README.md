@@ -2,7 +2,7 @@
 
 A powerful utility to download books from Archive.org with PDF conversion and Google Drive integration.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/abdullah-elbedwehy/ArchiveBookDownloader/blob/main/ArchiveBookDownloader.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/abdullah-elbedwehy/ArchiveBookDownloader/blob/main/ArchiveBookDownloader_colab.ipynb)
 
 ## Features
 
@@ -14,93 +14,103 @@ A powerful utility to download books from Archive.org with PDF conversion and Go
 - Google Drive integration for Colab users with shareable links
 - Support for returning loans automatically
 
-## Requirements
+## Getting Started
 
-- Archive.org account with borrowing privileges (create one at https://archive.org/account/signup)
-- Valid login credentials for Archive.org
-- Python 3.6+
-- Required packages:
-  - requests
-  - futures
-  - tqdm
-  - img2pdf (for PDF conversion)
-  - Google Colab libraries (for Google Drive integration)
+### Creating an Archive.org Account
 
-## Installation
+1. Visit [Archive.org](https://archive.org/account/signup)
+2. Click on "Sign Up" in the top right corner
+3. Fill in your email address, username, and password
+4. Verify your email address by clicking the link sent to you
+5. Your account is now ready to use for borrowing books!
 
-### Local Installation
+### Choose Your Method
+
+You can use ArchiveBookDownloader in two ways:
+
+1. **Google Colab (Recommended for beginners)**: Run in the cloud without any installation on your computer
+2. **Local Installation**: Run on your own computer (requires Python setup)
+
+## Option 1: Google Colab (Easiest Method)
+
+1. Click the "Open in Colab" button at the top of this README
+2. When the notebook opens in Google Colab, click "Runtime" in the menu, then "Run all"
+3. Enter your Archive.org email and password when prompted
+4. Enter the URL of the book you want to download
+5. The book will be downloaded and converted to PDF
+6. If you enable Google Drive integration, a shareable link will be created
+
+### Detailed Colab Instructions:
+
+1. When you first run the notebook, you'll be asked to connect to Google Drive - click "Connect to Google Drive"
+2. Follow the authentication steps
+3. The notebook will create a folder called "ArchiveBookDownloader" in your Google Drive
+4. Enter your Archive.org login details in the configuration cell
+5. Enter the book URL in the format: `https://archive.org/details/book_id`
+6. The downloaded PDF will be saved to your Google Drive
+
+## Option 2: Local Installation
+
+### Prerequisites
+
+- Python 3.6 or higher
+- pip (Python package manager)
+
+### Installation Steps
 
 1. Clone this repository:
-```bash
-git clone https://github.com/USERNAME/ArchiveBookDownloader.git
-cd ArchiveBookDownloader
-```
+   ```bash
+   git clone https://github.com/abdullah-elbedwehy/ArchiveBookDownloader.git
+   cd ArchiveBookDownloader
+   ```
 
 2. Install required packages:
-```bash
-pip install requests futures tqdm img2pdf
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### Google Colab
+3. Open the Jupyter notebook:
+   ```bash
+   jupyter notebook ArchiveBookDownloader_local.ipynb
+   ```
+   
+   If you don't have Jupyter installed, install it first:
+   ```bash
+   pip install jupyter
+   ```
 
-Simply click the "Open in Colab" button at the top of this README and run the notebook in Google Colab.
+4. Follow the instructions in the notebook:
+   - Enter your Archive.org credentials
+   - Set your desired configuration options
+   - Enter the URL of the book you want to download
+   - Run all cells in the notebook
 
-## Usage
+## How to Find Books on Archive.org
 
-### Configuration
+1. Go to [Archive.org](https://archive.org/)
+2. Use the search bar to find books by title, author, subject, etc.
+3. Look for books that have a "Borrow" button - these are the ones you can download
+4. Click on the book to view its details
+5. Copy the URL from your browser's address bar
+6. Paste this URL into the ArchiveBookDownloader notebook
 
-Before using the tool, you need to configure your Archive.org credentials:
+## Troubleshooting
 
-1. Open `ArchiveBookDownloader.py` (or use the Colab notebook)
-2. Replace the hardcoded EMAIL and PASSWORD values with your Archive.org credentials:
+### Common Issues:
 
-```python
-EMAIL = "your_email@example.com"
-PASSWORD = "your_password"
-```
+- **Invalid credentials**: Double-check your Archive.org email and password
+- **Book not available**: Some books may not be available for borrowing
+- **Download errors**: If download fails, try reducing the number of threads
+- **PDF creation fails**: This might happen with very large books or corrupted images
 
-### Settings
+## Contributing
 
-You can customize these settings:
-
-- `RESOLUTION`: Image resolution (0-10, where 0 is highest quality)
-- `N_THREADS`: Maximum number of download threads
-- `CREATE_PDF`: Set to True to create a PDF, False to keep individual JPGs
-- `SAVE_METADATA`: Set to True to save book metadata
-- `SAVE_TO_GDRIVE`: Set to True to save to Google Drive (Colab only)
-- `OUTPUT_DIR`: Directory to save downloads
-
-### Running the Tool
-
-#### Local Python Script
-```bash
-python ArchiveBookDownloader.py
-```
-You'll be prompted to enter an Archive.org book URL.
-
-#### Google Colab
-Run all cells in the notebook and follow the prompts.
-
-## How it Works
-
-1. The tool authenticates with your Archive.org account
-2. It borrows the book if necessary
-3. All book pages are downloaded as images
-4. Images are converted to a single PDF (if enabled)
-5. The book is returned automatically
-6. With Google Drive integration, a shareable link is created
-
-## Important Notes
-
-- This tool requires an Archive.org account
-- Respect copyright and usage terms on Archive.org
-- Some books may not be available for borrowing
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+## Disclaimer
 
-- Internet Archive for their amazing service
-- The open-source community for the libraries used in this project 
+This tool is intended for educational purposes and personal use only. Please respect copyright laws and the terms of service of Archive.org.
